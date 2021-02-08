@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+    <h1>{{user[0]["username"]}}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        </tbody>
+
+                {%  for holding in holdings %}
+                    <tr>
+                        <td>{{ holding["symbol"] }}</td>
+                        <td>{{ holding["name"] }}</td>
+                        <td>{{ holding["qty"] }}</td>
+                        <td>{{ holding["price"] }}</td>
+                        <td>{{holding["value"]}}</td>-->
+                    </tr>
+                {% endfor %}
+
+
+            <tr>
+                <td>Cash</td>
+                <td colspan="3"></td>
+                <td>{{ user[0]["cash"] }} </td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ user[0]["total"] }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

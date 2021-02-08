@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Price
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <h1>Price</h1>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Get Price</button>
+    </form>
+    <table class="table table-striped">
+
+            <thead>
+                <td>Symbol</td>
+                <td>Name</td>
+                <td>Price</td>
+            </thead>
+            <tbody>
+                <td>{{symbol}}</td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+            </tbody>
+    </table>
+{% endblock %}
